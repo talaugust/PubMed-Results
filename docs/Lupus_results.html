@@ -2647,23 +2647,26 @@ PubMed</title>
 
 <!-- from: https://stackoverflow.com/questions/16308779/how-can-i-hide-show-a-div-when-a-button-is-clicked-->  
 <script type="text/javascript">
-   function toggle_visibility(id) {
+   function toggle_visibility(curr_id, id) {
        var e = document.getElementById(id);
+       var t = document.getElementById(curr_id.id);
        if(e.style.display == 'block')
           e.style.display = 'none';
        else
           e.style.display = 'block';
+          t.style.display = 'none';
    }
 </script>
 
 
-      <button id="show-more-button" onclick="toggle_visibility('new-results-page');">
+      <button id="show-more-button" onclick="toggle_visibility(this, 'new-results-page');">
         <span class="text">Show more</span>
       <div class="dots-loading-indicator page-loading-indicator">
         <div class="dot dot-1" style="background-color: white;"></div>
         <div class="dot dot-2" style="background-color: white;"></div>
         <div class="dot dot-3" style="background-color: white;"></div>
       </div></button>
+
     
     <div class="max-results-displayed hide">
       You have reached the last page of results. A maximum of 10,000 results are available.
